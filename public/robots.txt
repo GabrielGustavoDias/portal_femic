@@ -1,0 +1,4 @@
+Disallow: /checkout/
+Disallow: /api/
+Disallow: /login/admin/
+Disallow: /admin

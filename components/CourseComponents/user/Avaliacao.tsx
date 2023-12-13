@@ -54,7 +54,7 @@ export default function Atividade({ id, data }: any) {
           Tentativas: {tries}
         </span>
       </div>
-      <p className="my-5 text-slate-800 whitespace-pre-line  leading-7">
+      <p className="my-5 text-slate-800 whitespace-pre-line leading-7">
         Caro(a) Cursista, <br />
         A avaliação final contempla 10 questões de múltipla escolha que abrangem
         o conteúdo abordado neste curso. <br />

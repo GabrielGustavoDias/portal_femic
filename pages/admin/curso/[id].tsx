@@ -88,7 +88,10 @@ export default function Cursos({ course }: any) {
               <option value="junior" selected>
                 Júnior
               </option>
-              <option value="pleno">Pleno</option>
+              <option value="jovem">Jovem</option>
+              <option value="prof">Mais</option>
+              <option value="crc">CRC</option>
+              <option value="avaliador">Avaliador</option>
             </select>
           </div>
           <div>

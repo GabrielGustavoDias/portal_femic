@@ -9,8 +9,7 @@ import LayoutBase from '../styles/layout/base';
 export default function Cursos({ courses }: any) {
   return (
     <LayoutBase title="Cursos">
-      {courses.length > 0 &&
-        courses.map((course: any) => (
+      {courses.length > 0 && courses.map((course: any) => (
           <ContainerCourse key={course._id}>
             <div className="container-image ">
               <img
@@ -22,7 +21,7 @@ export default function Cursos({ courses }: any) {
             </div>
             <div className="container-info">
               <p className="strong">{course.title}</p>
-              <div dangerouslySetInnerHTML={{ __html: course.about }} />
+              <p>{course.about}</p>
               <div className="flex flex-col">
                 <p className="strong">Duração do curso</p>
                 <p className="text-lg font-semibold text-slate-700">

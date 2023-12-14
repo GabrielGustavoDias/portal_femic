@@ -128,9 +128,9 @@ export default function Atividade({ data, id, moduleId }: any) {
                   <option value="aula" selected>
                     Aula do youtube
                   </option>
-                  <option value="canva">Slide do Canva</option>
+                  {/* <option value="canva">Slide do Canva</option>
                   <option value="atividade">Atividade</option>
-                  <option value="texto">Texto</option>
+                  <option value="texto">Texto</option> */}
                 </select>
               </div>
               <button className="sucess mt-2">Adicionar</button>

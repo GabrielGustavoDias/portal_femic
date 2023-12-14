@@ -26,7 +26,10 @@ export default function Atividade({ test, id, moduleId, index }: any) {
     const idRef = router.asPath.split('/')[router.asPath.split('/').length - 1];
 
     const aulaDados = JSON.parse(sessionStorage.getItem('user_course') || '{}');
-
+    const aulaEncontrada = aulaDados?.activities.find(
+      (item: any) => item.module_id === moduleId
+    );
+    
     if (activity.type == 'aula') {
       return (
         <div className="flex flex-col w-full">
@@ -36,9 +39,7 @@ export default function Atividade({ test, id, moduleId, index }: any) {
             index={index}
             data={activity}
             concluido={
-              aulaDados.activities.find(
-                (item: any) => item.module_id == moduleId
-              ).concluido
+              aulaEncontrada ? aulaEncontrada.concluido : false
             }
           />
         </div>
@@ -52,9 +53,7 @@ export default function Atividade({ test, id, moduleId, index }: any) {
             index={index}
             data={activity}
             concluido={
-              aulaDados.activities.find(
-                (item: any) => item.module_id == moduleId
-              ).concluido
+              aulaEncontrada ? aulaEncontrada.concluido : false
             }
           />
         </div>
@@ -68,22 +67,13 @@ export default function Atividade({ test, id, moduleId, index }: any) {
             index={index}
             data={activity}
             concluido={
-              aulaDados.activities.find(
-                (item: any) => item.module_id == moduleId
-              ).concluido
+              aulaEncontrada ? aulaEncontrada.concluido : false
             }
           />
         </div>
       );
     } else if (activity.type == 'atividade') {
-      return (
-        <Questoes
-          id={idRef}
-          exerciceId={moduleId}
-          index={index}
-          data={activity}
-        />
-      );
+      return <Questoes data={activity} />;
     }
   };
 
@@ -293,7 +283,7 @@ export const Texto = ({
         <span className="text-lg text-emerald-500">Aula concluida</span>
       )}
       {!concluido && <span className="text-lg">Aula não concluida</span>}
-      <span>{data['text']}</span>
+      <span className="text-slate-800 whitespace-normal break-all max-w-3xl">{data['text']}</span>
       <button
         className={`rounded text-white font-semibold ${
           concluido ? 'bg-gray-300 cursor-default' : 'bg-emerald-500'

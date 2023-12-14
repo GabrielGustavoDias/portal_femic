@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
 
@@ -7,21 +7,39 @@ import { ContainerCourse } from '../styles/cursos';
 import LayoutBase from '../styles/layout/base';
 
 export default function Cursos({ courses }: any) {
+  const [listCoursesFiltered, setListCoursesFiltered] = useState<any[]>([]);
+  const [typeUser, setTypeUser] = useState<string | null>(null);
+
+  useEffect(() => {
+    const user = sessionStorage.getItem('page');
+    setTypeUser(user);
+  }, []);
+
+  useEffect(() => {
+    if (typeUser) {
+      const filtered = courses.filter(
+        (course: any) => course.public === typeUser
+      );
+      setListCoursesFiltered(filtered);
+    }
+  }, [courses, typeUser]);
+
   return (
     <LayoutBase title="Cursos">
-      {courses.length > 0 && courses.map((course: any) => (
+      {listCoursesFiltered.length > 0 &&
+        listCoursesFiltered.map((course: any) => (
           <ContainerCourse key={course._id}>
-            <div className="container-image ">
+            <div className="container-image">
               <img
                 src={`${baseUrl}/course/banner/${course.banner}`}
                 alt="default image"
                 width={300}
               />
-              <p>{course.title}</p>
+              <p className="strong whitespace-normal break-all">{course.title}</p>
             </div>
-            <div className="container-info">
-              <p className="strong">{course.title}</p>
-              <p>{course.about}</p>
+            <div className="container-info w-[80%]">
+              <p className="strong whitespace-normal break-all max-w-2xl">{course.title}</p>
+              <p className="whitespace-normal break-all max-w-3xl">{course.about}</p>
               <div className="flex flex-col">
                 <p className="strong">Duração do curso</p>
                 <p className="text-lg font-semibold text-slate-700">

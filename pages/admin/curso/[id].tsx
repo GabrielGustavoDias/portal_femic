@@ -79,7 +79,7 @@ export default function Cursos({ course }: any) {
               })}
               required></textarea> */}
           </div>
-          <div>
+          {/* <div>
             <label>Público-alvo</label>
             <span className="sub">Máximo de 300 caracteres com espaço. </span>
             <textarea
@@ -88,6 +88,22 @@ export default function Cursos({ course }: any) {
                 value: course.public,
               })}
               required></textarea>
+          </div> */}
+          <div>
+            <label>Selecione o público-alvo do curso</label>
+            <select
+              {...register('public', {
+                value: course.public,
+              })}
+              required>
+              <option value="junior" selected>
+                Júnior
+              </option>
+              <option value="jovem">Jovem</option>
+              <option value="prof">Mais</option>
+              <option value="crc">CRC</option>
+              <option value="avaliador">Avaliador</option>
+            </select>
           </div>
           <div>
             <label>Objetivos</label>

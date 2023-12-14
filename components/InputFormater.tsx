@@ -6,7 +6,13 @@ const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
 export const TextEdit = ({ placeholder, onQuillChange }) => {
   const [content, setContent] = useState('');
-
+  let toolbarOptions = [
+    ['bold', 'italic', 'underline'],
+    ['link', 'image'],
+  ];
+  const module = {
+    toolbar: toolbarOptions,
+  };
   const handleQuillChange = (value: string) => {
     setContent(value);
     onQuillChange(value);
@@ -16,6 +22,7 @@ export const TextEdit = ({ placeholder, onQuillChange }) => {
     <div>
       <ReactQuill
         theme="snow"
+        modules={module}
         placeholder={placeholder}
         value={content}
         onChange={handleQuillChange}

@@ -3,6 +3,7 @@ import { Loading } from '@nextui-org/react';
 import { useEffect } from 'react';
 import { FormCourse } from '../../styles/admin/styles.module';
 import api from '../../config/api';
+import { TextEdit } from '../InputFormater';
 
 interface IProps {
   id: string;
@@ -10,7 +11,11 @@ interface IProps {
 }
 
 export default function AulaInaugural({ id, data }: IProps) {
-  const { register, control, handleSubmit, reset, watch } = useForm();
+  const { register, control, handleSubmit, reset, setValue, watch } = useForm();
+
+  const handleQuillChange = (field: string, value: string) => {
+    setValue(field, value);
+  };
 
   useEffect(() => {
     reset({
@@ -28,7 +33,7 @@ export default function AulaInaugural({ id, data }: IProps) {
       })
       .catch(console.warn);
   };
-  
+
   function extractVideoCodeFromUrl(url = '..') {
     var match = url.match(/(?:\/|%3D|v=)([0-9A-Za-z_-]{11})(?:[%#?&]|$)/);
     return match ? match[1] : null;
@@ -38,10 +43,14 @@ export default function AulaInaugural({ id, data }: IProps) {
     <FormCourse onSubmit={handleSubmit(submit)}>
       <div>
         <label htmlFor="">Digite a descrição.</label>
-        <span className="sub">
-    Digite o texto que irá aparecer na tela de apresentação do curso.
-        </span>
-        <textarea required {...register('description')} rows={4}></textarea>
+        <TextEdit
+          placeholder={
+            'Digite o texto que irá aparecer na tela de apresentação do curso.'
+          }
+          onQuillChange={(value: string) =>
+            handleQuillChange('description', value)
+          }
+        />
       </div>
       <input type="text" {...register('type')} hidden value="aula_inaugural" />
       <div>
@@ -49,7 +58,7 @@ export default function AulaInaugural({ id, data }: IProps) {
         <input type="url" {...register('first_class')} />
       </div>
       {!extractVideoCodeFromUrl(watch('first_class')) &&
-          !watch('first_class') && <span>Videoaula aparecerá aqui.</span>}
+        !watch('first_class') && <span>Videoaula aparecerá aqui.</span>}
       {!extractVideoCodeFromUrl(watch('first_class')) &&
         watch('first_class')?.length > 0 && <Loading color="warning" />}
       {extractVideoCodeFromUrl(watch('first_class')) && (

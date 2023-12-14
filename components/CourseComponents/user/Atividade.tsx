@@ -29,7 +29,7 @@ export default function Atividade({ test, id, moduleId, index }: any) {
     const aulaEncontrada = aulaDados?.activities.find(
       (item: any) => item.module_id === moduleId
     );
-    
+
     if (activity.type == 'aula') {
       return (
         <div className="flex flex-col w-full">
@@ -38,9 +38,7 @@ export default function Atividade({ test, id, moduleId, index }: any) {
             exerciceId={moduleId}
             index={index}
             data={activity}
-            concluido={
-              aulaEncontrada ? aulaEncontrada.concluido : false
-            }
+            concluido={aulaEncontrada ? aulaEncontrada.concluido : false}
           />
         </div>
       );
@@ -52,9 +50,7 @@ export default function Atividade({ test, id, moduleId, index }: any) {
             exerciceId={moduleId}
             index={index}
             data={activity}
-            concluido={
-              aulaEncontrada ? aulaEncontrada.concluido : false
-            }
+            concluido={aulaEncontrada ? aulaEncontrada.concluido : false}
           />
         </div>
       );
@@ -66,9 +62,7 @@ export default function Atividade({ test, id, moduleId, index }: any) {
             exerciceId={moduleId}
             index={index}
             data={activity}
-            concluido={
-              aulaEncontrada ? aulaEncontrada.concluido : false
-            }
+            concluido={aulaEncontrada ? aulaEncontrada.concluido : false}
           />
         </div>
       );
@@ -283,7 +277,8 @@ export const Texto = ({
         <span className="text-lg text-emerald-500">Aula concluida</span>
       )}
       {!concluido && <span className="text-lg">Aula não concluida</span>}
-      <span className="text-slate-800 whitespace-normal break-all max-w-3xl">{data['text']}</span>
+      {/* <span className="text-slate-800 whitespace-normal break-all max-w-3xl">{data['text']}</span> */}
+      <div dangerouslySetInnerHTML={{ __html: data['text'] }} />
       <button
         className={`rounded text-white font-semibold ${
           concluido ? 'bg-gray-300 cursor-default' : 'bg-emerald-500'

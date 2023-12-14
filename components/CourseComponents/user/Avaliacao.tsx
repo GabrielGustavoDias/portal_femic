@@ -21,7 +21,7 @@ export default function Atividade({ id, data }: any) {
   const submit = (data: any) => {
     const dataStr = sessionStorage.getItem('user_course');
     const dataUsr = JSON.parse(dataStr || '{}');
-    
+
     if (dataUsr.complete) {
       alert.show('Você ja concluiu esse curso');
       return;
@@ -40,7 +40,6 @@ export default function Atividade({ id, data }: any) {
         sessionStorage.setItem('user_course', JSON.stringify(res.data.user));
         if (res.data.erros.length < 1) {
           alert.success('Você concluiu o curso!');
-        
         }
         console.log(res.data.erros);
       });
@@ -50,9 +49,7 @@ export default function Atividade({ id, data }: any) {
     <div className="flex w-full bg-white rounded p-5 flex-col mb-5">
       <div className="flex w-full my-5 flex-row justify-between itens-center">
         <span className="text-3xl">Avaliação</span>
-        <span className="text-slate-800">
-          Tentativas: {tries}
-        </span>
+        <span className="text-slate-800">Tentativas: {tries}</span>
       </div>
       <p className="my-5 text-slate-800 whitespace-pre-line  leading-7">
         Caro(a) Cursista, <br />
@@ -80,23 +77,30 @@ export default function Atividade({ id, data }: any) {
             {err.includes(String(index)) && (
               <span className="text-red-500 ">Resposta errada</span>
             )}
-            <p className="text-lg">Enunciado: {questao.enunciado}</p>
+            {/* <p className="text-lg">Enunciado: {questao.enunciado}</p> */}
+            <div
+              dangerouslySetInnerHTML={{
+                __html: `Enunciado: ${questao.enunciado}`,
+              }}
+            />
             <div>
-              {questao.alternativas.map((alternativa: any, alternativaIndex: number) => (
-                <div className="my-2" key={alternativaIndex}>
-                  <label className="hover:bg-slate-100 p-2 rounded cursor-pointer">
-                    <input
-                      className="mx-1"
-                      type="radio"
-                      value={alternativaIndex}
-                      required
-                      {...register(`respostas[${index}]`)}
-                    />
-                    {String.fromCharCode(97 + alternativaIndex)}&#41;{' '}
-                    {alternativa}
-                  </label>
-                </div>
-              ))}
+              {questao.alternativas.map(
+                (alternativa: any, alternativaIndex: number) => (
+                  <div className="my-2" key={alternativaIndex}>
+                    <label className="hover:bg-slate-100 p-2 rounded cursor-pointer">
+                      <input
+                        className="mx-1"
+                        type="radio"
+                        value={alternativaIndex}
+                        required
+                        {...register(`respostas[${index}]`)}
+                      />
+                      {String.fromCharCode(97 + alternativaIndex)}&#41;{' '}
+                      {alternativa}
+                    </label>
+                  </div>
+                )
+              )}
             </div>
           </div>
         ))}

@@ -50,7 +50,8 @@ export default function AulaInaugural({
   return (
     <div className="bg-white rounded p-5 m-4 gap-6 shadow flex flex-col">
       <h2 className="font-semibold text-2xl">Aula Inaugural</h2>
-      <span>{data['description']}</span>
+      {/* <span>{data['description']}</span> */}
+      <span dangerouslySetInnerHTML={{ __html: data['description'] }} />
       <span>
         Assista a nossa aula Inaugural e conheça mais sobre o curso de{' '}
         {data.title}

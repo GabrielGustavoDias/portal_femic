@@ -293,7 +293,8 @@ export const Texto = ({
         <span className="text-lg text-emerald-500">Aula concluida</span>
       )}
       {!concluido && <span className="text-lg">Aula não concluida</span>}
-      <span>{data['text']}</span>
+      {/* <span>{data['text']}</span> */}
+      <div dangerouslySetInnerHTML={{ __html: data['text'] }} />
       <button
         className={`rounded text-white font-semibold ${
           concluido ? 'bg-gray-300 cursor-default' : 'bg-emerald-500'

@@ -4,18 +4,14 @@ import AdminLayout from '../../../styles/layout/admin';
 import { FormCourse } from '../../../styles/admin/styles.module';
 import api, { baseUrl } from '../../../config/api';
 import { GetServerSideProps } from 'next';
-import { TextEdit } from '../../../components/InputFormater';
-import { useState } from 'react';
 
 export default function Cursos({ course }: any) {
-  const { register, control, setValue, handleSubmit } = useForm();
+  const { register, control, handleSubmit } = useForm();
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'modulos',
   });
-  const handleQuillChange = (field: string, value: string) => {
-    setValue(field, value);
-  };
+
   const router = useRouter();
 
   const addModule = () => {
@@ -65,19 +61,13 @@ export default function Cursos({ course }: any) {
             <span className="sub">
               Mínimo de 150 e máximo de 300 caracteres com espaço.
             </span>
-            <TextEdit
-              placeholder={'Sobre o curso '}
-              onQuillChange={(value: string) =>
-                handleQuillChange('about', value)
-              }
-            />
 
-            {/* <textarea
+            <textarea
               rows={3}
               {...register('about', {
                 value: course.about,
               })}
-              required></textarea> */}
+              required></textarea>
           </div>
           <div>
             <label>Público-alvo</label>

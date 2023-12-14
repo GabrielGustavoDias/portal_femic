@@ -127,7 +127,7 @@ export default function CursoInfo() {
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-xl">Público-alvo</span>
-                <span className="text-slate-800">{curso.public}</span>
+                <span className="text-slate-800">{curso.public.toUpperCase()}</span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-xl">Objetivos</span>
@@ -195,8 +195,6 @@ export default function CursoInfo() {
                 <span className="text-slate-800  max-w-xs">
                   Certificação digital online.Mediante realização de atividades
                   avaliativas com desempenho mínimo de 70%.{' '}
-                  <Link href="">Clique</Link> aqui para ver modelo do
-                  certificado.
                 </span>
               </div>
             </div>

@@ -17,6 +17,7 @@ import api, { baseUrl } from '../../../../config/api';
 
 import { GetServerSideProps } from 'next';
 import { ICourse, IModule } from '../../../../types/course';
+import { useAlert } from 'react-alert';
 
 interface IProp {
   courseProps: ICourse;
@@ -31,6 +32,8 @@ export default function CursoModulo({ courseProps }: IProp) {
   const [preview, setPreview] = useState<string | undefined>('');
 
   const router = useRouter();
+
+  const alert = useAlert();
 
   useEffect(() => {
     setModules(courseProps.modulos);
@@ -84,7 +87,7 @@ export default function CursoModulo({ courseProps }: IProp) {
 
   const updatePhoto = () => {
     if (!image) {
-      alert('Selecione uma imagem');
+      alert.info('Selecione uma imagem');
       return;
     }
     const dataPhoto = new FormData();
@@ -107,7 +110,10 @@ export default function CursoModulo({ courseProps }: IProp) {
     if (confirmation) {
       api
         .patch(`course/publish/${courseProps._id}`)
-        .then(() => alert('curso publicado com sucesso'))
+        .then(() => {
+          alert.success('curso publicado com sucesso');
+          window.location.reload();
+        })
         .catch(console.warn);
     }
   };

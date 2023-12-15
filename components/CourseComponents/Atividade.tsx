@@ -11,6 +11,7 @@ import Questoes from './Questoes';
 import { ICourse, IModule } from '../../types/course';
 
 import api from '../../config/api';
+import { TextEdit } from '../InputFormater';
 
 interface Exercice {
   id: string;
@@ -52,7 +53,7 @@ export default function Atividade({ data, id, moduleId }: any) {
 
   useEffect(() => {
     const course = JSON.parse(sessionStorage.getItem('curso') || '{}');
-    
+
     setActivities(course.questoes || []);
   }, []);
 
@@ -127,9 +128,9 @@ export default function Atividade({ data, id, moduleId }: any) {
                   <option value="aula" selected>
                     Aula do youtube
                   </option>
-                  <option value="canva">Slide do Canva</option>
+                  {/* <option value="canva">Slide do Canva</option>
                   <option value="atividade">Atividade</option>
-                  <option value="texto">Texto</option>
+                  <option value="texto">Texto</option> */}
                 </select>
               </div>
               <button className="sucess mt-2">Adicionar</button>
@@ -153,12 +154,16 @@ function extractVideoCodeFromUrl(url = '..') {
 }
 
 const Aula = ({ id, exerciceId, index, data }: any) => {
-  const { register, handleSubmit, watch, reset } = useForm();
+  const { register, handleSubmit, setValue, watch, reset } = useForm();
   const [change, setChange] = useState(false);
 
   useEffect(() => {
     reset(data);
   }, []);
+
+  const handleQuillChange = (field: string, value: string) => {
+    setValue(field, value);
+  };
 
   const submit = (data: any) => {
     data['id'] = id;
@@ -214,8 +219,14 @@ const Aula = ({ id, exerciceId, index, data }: any) => {
           allowFullScreen></iframe>
       )}
       <div>
-        <label>Digite a desccrição.</label>
-        <textarea rows={10} {...register('descricao')} />
+        <label>Digite a descrição.</label>
+        <TextEdit
+          placeholder={'Digite a descrição da sua aula'}
+          onQuillChange={(value: string) =>
+            handleQuillChange('descricao', value)
+          }
+        />
+        {/* <textarea rows={10} {...register('descricao')} /> */}
       </div>
       <input
         type="text"
@@ -326,7 +337,7 @@ const Canva = ({ id, exerciceId, index, data }: any) => {
           allow="fullscreen"></iframe>
       )}
       <div>
-        <label>Digite a desccrição.</label>
+        <label>Digite a descrição.</label>
         <textarea rows={10} {...register('descricao')} />
       </div>
       <section className="flex flex-row gap-2">

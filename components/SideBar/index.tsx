@@ -69,7 +69,7 @@ export default function SideBar() {
           <Label>Perfil</Label>
         </NavGroup>
       </Link>
-      <Link href="/cursos" passHref>
+      <Link onClick={() => window.location.reload()} href="/cursos" passHref>
         <NavGroup active={active == 'cursos'}>
           <FiAward size={24} color="#fff" />
           <Label>Cursos</Label>

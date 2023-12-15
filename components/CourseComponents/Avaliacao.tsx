@@ -5,6 +5,7 @@ import { useAlert } from 'react-alert';
 import { FormCourse } from '../../styles/admin/styles.module';
 import { IQuestion } from '../../types/course';
 import api from '../../config/api';
+import { TextEdit } from '../InputFormater';
 
 interface IProps {
   id: string;
@@ -12,9 +13,13 @@ interface IProps {
 }
 
 export default function Avaliacao({ id, data }: IProps) {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, setValue, reset } = useForm();
 
   const alert = useAlert();
+
+  const handleQuillChange = (field: string, value: string) => {
+    setValue(field, value);
+  };
 
   useEffect(() => {
     if (data?.length >= 1) {
@@ -27,6 +32,7 @@ export default function Avaliacao({ id, data }: IProps) {
       .patch(`/course/${id}`, data)
       .then((res) => {
         alert.success('Avaliação atualizada');
+        window.location.reload();
       })
       .catch(console.warn);
   };
@@ -39,13 +45,21 @@ export default function Avaliacao({ id, data }: IProps) {
           <label htmlFor={`${questaoPrefix}.enunciado`}>
             Questão {index + 1}
           </label>
-          <textarea
+          <TextEdit
+            className="rounded border"
+            placeholder={'Enunciado da questão'}
+            id={`${questaoPrefix}.enunciado`}
+            onQuillChange={(value: string) =>
+              handleQuillChange(`${questaoPrefix}.enunciado`, value)
+            }
+          />
+          {/* <textarea
             rows={4}
             className="rounded border"
             id={`${questaoPrefix}.enunciado`}
             placeholder="Enunciado da questão"
             {...register(`${questaoPrefix}.enunciado`)}
-          />
+          /> */}
         </div>
 
         {[0, 1, 2, 3].map((moduleIndex) => (

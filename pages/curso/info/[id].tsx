@@ -111,27 +111,27 @@ export default function CursoInfo() {
             src={`${baseUrl}/course/banner/${curso.banner}`}
             alt="Banner do curso"
           />
-          <div className="flex items-start justify-between bg-white m-3 p-4 shadow-md rounded gap-4">
+          <div className="flex items-start justify-between bg-white m-3 p-4 shadow-md rounded gap-4 max-w-[100%]">
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-1">
                 <span className="text-xl">Titulo</span>
-                <span className="text-slate-800 whitespace-pre-line">
+                <span className="text-slate-800 whitespace-normal break-all max-w-3xl">
                   {curso.title}
                 </span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-xl">Sobre o curso</span>
-                <span className="text-slate-800 whitespace-pre-line">
+                <span className="text-slate-800 whitespace-normal break-all max-w-3xl">
                   {curso.about}
                 </span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-xl">Público-alvo</span>
-                <span className="text-slate-800">{curso.public}</span>
+                <span className="text-slate-800">{curso.public.toUpperCase()}</span>
               </div>
               <div className="flex flex-col gap-1">
                 <span className="text-xl">Objetivos</span>
-                <span className="text-slate-800 whitespace-pre-line">
+                <span className="text-slate-800 whitespace-normal break-all max-w-3xl">
                   {curso.objectives}
                 </span>
               </div>
@@ -195,8 +195,6 @@ export default function CursoInfo() {
                 <span className="text-slate-800  max-w-xs">
                   Certificação digital online.Mediante realização de atividades
                   avaliativas com desempenho mínimo de 70%.{' '}
-                  <Link href="">Clique</Link> aqui para ver modelo do
-                  certificado.
                 </span>
               </div>
             </div>

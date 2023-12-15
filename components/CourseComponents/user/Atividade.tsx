@@ -26,6 +26,9 @@ export default function Atividade({ test, id, moduleId, index }: any) {
     const idRef = router.asPath.split('/')[router.asPath.split('/').length - 1];
 
     const aulaDados = JSON.parse(sessionStorage.getItem('user_course') || '{}');
+    const aulaEncontrada = aulaDados?.activities.find(
+      (item: any) => item.module_id === moduleId
+    );
 
     if (activity.type == 'aula') {
       return (
@@ -35,11 +38,7 @@ export default function Atividade({ test, id, moduleId, index }: any) {
             exerciceId={moduleId}
             index={index}
             data={activity}
-            concluido={
-              aulaDados.activities.find(
-                (item: any) => item.module_id == moduleId
-              ).concluido
-            }
+            concluido={aulaEncontrada ? aulaEncontrada.concluido : false}
           />
         </div>
       );
@@ -51,11 +50,7 @@ export default function Atividade({ test, id, moduleId, index }: any) {
             exerciceId={moduleId}
             index={index}
             data={activity}
-            concluido={
-              aulaDados.activities.find(
-                (item: any) => item.module_id == moduleId
-              ).concluido
-            }
+            concluido={aulaEncontrada ? aulaEncontrada.concluido : false}
           />
         </div>
       );
@@ -67,23 +62,12 @@ export default function Atividade({ test, id, moduleId, index }: any) {
             exerciceId={moduleId}
             index={index}
             data={activity}
-            concluido={
-              aulaDados.activities.find(
-                (item: any) => item.module_id == moduleId
-              ).concluido
-            }
+            concluido={aulaEncontrada ? aulaEncontrada.concluido : false}
           />
         </div>
       );
     } else if (activity.type == 'atividade') {
-      return (
-        <Questoes
-          id={idRef}
-          exerciceId={moduleId}
-          index={index}
-          data={activity}
-        />
-      );
+      return <Questoes data={activity} />;
     }
   };
 
@@ -187,6 +171,7 @@ export function Aula({ id, exerciceId, index, data, concluido = false }: any) {
       )
       .then((res) => {
         sessionStorage.setItem('user_course', JSON.stringify(res.data));
+        window.location.reload();
       });
   };
 
@@ -293,7 +278,8 @@ export const Texto = ({
         <span className="text-lg text-emerald-500">Aula concluida</span>
       )}
       {!concluido && <span className="text-lg">Aula não concluida</span>}
-      <span>{data['text']}</span>
+      {/* <span className="text-slate-800 whitespace-normal break-all max-w-3xl">{data['text']}</span> */}
+      <div dangerouslySetInnerHTML={{ __html: data['text'] }} />
       <button
         className={`rounded text-white font-semibold ${
           concluido ? 'bg-gray-300 cursor-default' : 'bg-emerald-500'

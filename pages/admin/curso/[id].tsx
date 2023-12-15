@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import { useFieldArray, useForm } from 'react-hook-form';
 import AdminLayout from '../../../styles/layout/admin';
 import { FormCourse } from '../../../styles/admin/styles.module';
-
 import api, { baseUrl } from '../../../config/api';
 import { GetServerSideProps } from 'next';
 
@@ -20,6 +19,7 @@ export default function Cursos({ course }: any) {
   };
 
   const onSubmit = (data: any) => {
+ 
     if (course._id) {
       delete data['modulos'];
       data['type'] = 'infos';
@@ -61,6 +61,7 @@ export default function Cursos({ course }: any) {
             <span className="sub">
               Mínimo de 150 e máximo de 300 caracteres com espaço.
             </span>
+
             <textarea
               rows={3}
               {...register('about', {
@@ -68,7 +69,7 @@ export default function Cursos({ course }: any) {
               })}
               required></textarea>
           </div>
-          <div>
+          {/* <div>
             <label>Público-alvo</label>
             <span className="sub">Máximo de 300 caracteres com espaço. </span>
             <textarea
@@ -77,6 +78,22 @@ export default function Cursos({ course }: any) {
                 value: course.public,
               })}
               required></textarea>
+          </div> */}
+          <div>
+            <label>Selecione o público-alvo do curso</label>
+            <select
+              {...register('public', {
+                value: course.public,
+              })}
+              required>
+              <option value="junior" selected>
+                Júnior
+              </option>
+              <option value="jovem">Jovem</option>
+              <option value="prof">Mais</option>
+              <option value="crc">CRC</option>
+              <option value="avaliador">Avaliador</option>
+            </select>
           </div>
           <div>
             <label>Objetivos</label>
@@ -99,7 +116,7 @@ export default function Cursos({ course }: any) {
               Adicione os módulos formativos, conforme ementa do curso.{' '}
             </span>
             {fields.map((item: any, index) => (
-              <div key={item.id} className="mt-2">
+              <div key={item?.id} className="mt-2">
                 <input
                   type="text"
                   {...register(`modulos.${index}.name`, {

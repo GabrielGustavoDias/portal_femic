@@ -171,6 +171,7 @@ export function Aula({ id, exerciceId, index, data, concluido = false }: any) {
       )
       .then((res) => {
         sessionStorage.setItem('user_course', JSON.stringify(res.data));
+        window.location.reload();
       });
   };
 

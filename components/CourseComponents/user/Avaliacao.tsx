@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useAlert } from 'react-alert';
-
 import api from '../../../config/api';
 
 export default function Atividade({ id, data }: any) {
@@ -23,6 +22,8 @@ export default function Atividade({ id, data }: any) {
     const dataStr = sessionStorage.getItem('user_course');
     const dataUsr = JSON.parse(dataStr || '{}');
 
+    window.location.reload();
+  
     if (dataUsr.complete) {
       alert.show('Você ja concluiu esse curso');
       if (evaluationCompleted) {
@@ -42,7 +43,7 @@ export default function Atividade({ id, data }: any) {
         setErr(res.data.erros);
         setTries(res.data.user.tentativas);
         sessionStorage.setItem('user_course', JSON.stringify(res.data.user));
-        if (res.data.erros.length < 1) {
+        if (res.data.erros.length <= 3) {
           alert.success('Você concluiu o curso!');
         }
         console.log(res.data.erros);
@@ -55,7 +56,7 @@ export default function Atividade({ id, data }: any) {
         <span className="text-3xl">Avaliação</span>
         <span className="text-slate-800">Tentativas: {tries}</span>
       </div>
-      {evaluationCompleted ? (
+      {err.length <= 3 && evaluationCompleted ? (
         <button className="bg-gray-400 text-white w-fit px-4 py-2 rounded font-semibold">
           Avaliação Concluída
         </button>

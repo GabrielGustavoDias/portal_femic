@@ -63,8 +63,8 @@ export default function Cursos() {
           </div>
 
           <div className="flex gap-2">
-            <Link href={`/admin/curso/modulos/${curso._id}`} passHref>
-              <a>Ver curso</a>
+            <Link onClick={() => window.location.reload()} href={`/admin/curso/modulos/${curso._id}`} passHref>
+              <a >Ver curso</a>
             </Link>
             <button onClick={() => deleteCourse(curso._id)} className="danger">
               <FiTrash size={24} />

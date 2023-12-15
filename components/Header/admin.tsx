@@ -23,6 +23,7 @@ export default function AdminHeader() {
 
   const exit = () => {
     sessionStorage.clear();
+    localStorage.clear()
     router.push("/");
   }
 

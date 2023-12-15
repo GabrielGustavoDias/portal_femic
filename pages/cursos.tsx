@@ -58,7 +58,7 @@ export default function Cursos({ courses }: any) {
                   {course.time} horas
                 </p>
               </div>
-              <Link href={`/curso/info/${course._id}`} passHref>
+              <Link onClick={() => window.location.reload()} href={`/curso/info/${course._id}`} passHref>
                 <a className="sucess self-end">Ir para curso</a>
               </Link>
             </div>

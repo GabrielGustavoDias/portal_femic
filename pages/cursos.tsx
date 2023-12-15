@@ -9,6 +9,7 @@ import LayoutBase from '../styles/layout/base';
 export default function Cursos({ courses }: any) {
   const [listCoursesFiltered, setListCoursesFiltered] = useState<any[]>([]);
   const [typeUser, setTypeUser] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const user = sessionStorage.getItem('page');
@@ -21,12 +22,17 @@ export default function Cursos({ courses }: any) {
         (course: any) => course.public === typeUser
       );
       setListCoursesFiltered(filtered);
+      setLoading(false);
     }
   }, [courses, typeUser]);
 
   return (
     <LayoutBase title="Cursos">
-      {listCoursesFiltered.length > 0 ? (
+      {loading ? (
+        <p className="text-center font-semibold text-slate-700 text-2xl">
+          Carregando cursos...
+        </p>
+      ) : listCoursesFiltered.length > 0 ? (
         listCoursesFiltered.map((course: any) => (
           <ContainerCourse key={course._id}>
             <div className="container-image">
@@ -59,7 +65,7 @@ export default function Cursos({ courses }: any) {
           </ContainerCourse>
         ))
       ) : (
-        <p className="text-center font-semibold text-slate-700 text-2xl" >
+        <p className="text-center font-semibold text-slate-700 text-2xl">
           Não existe nenhum curso disponível para o seu perfil no momento!
         </p>
       )}

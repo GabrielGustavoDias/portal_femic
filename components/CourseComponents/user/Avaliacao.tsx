@@ -87,7 +87,7 @@ export default function Atividade({ id, data }: any) {
                 {err.includes(String(index)) && (
                   <span className="text-red-500 ">Resposta errada</span>
                 )}
-                <p className="text-lg">Enunciado: {questao.enunciado}</p>
+                <span dangerouslySetInnerHTML={{ __html: questao.enunciado }} />
                 <div>
                   {questao.alternativas.map(
                     (alternativa: any, alternativaIndex: number) => (

@@ -1,7 +1,6 @@
-
 export interface IUser {
   _id: string;
-  
+
   name: string;
 
   identifier: string;
@@ -39,6 +38,6 @@ export interface IUser {
   formation: string;
 
   singUp_date: string;
-  
+
   profiles: [any];
 }

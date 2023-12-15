@@ -1,4 +1,4 @@
-import { IProject } from "../pages/home/types/stypes";
+import { IProject } from '../pages/home/types/stypes';
 
 export interface IRooms {
   name: string;

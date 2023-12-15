@@ -1,4 +1,3 @@
-
 export interface IEvaluation {
   nota1: number;
   nota2: number;
@@ -25,7 +24,6 @@ export interface IEvaluation2 {
   somatorio: number;
 }
 
-
 interface IInstituition {
   adm_category: string;
   city: string;
@@ -37,7 +35,7 @@ interface IInstituition {
 }
 
 export interface IProject {
-	live: any;
+  live: any;
   _id: string;
   id_femic: string;
   title: string;
@@ -62,4 +60,3 @@ export interface IProject {
   certificate: string;
   winner: any;
 }
-

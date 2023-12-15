@@ -27,7 +27,7 @@ const Header = ({ title }) => {
   const [profiles, setProfiles] = useState([]);
   const [userName, setUsername] = useState('');
   const [avatar, setAvatar] = useState('');
-  const [page, setPage] = useFormState('');
+  const [page, setPage] = useState('');
 
   const [showMenu, setShowMenu] = useState(false);
 

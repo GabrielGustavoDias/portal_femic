@@ -7,9 +7,9 @@ import { ContainerCourse } from '../styles/cursos';
 import LayoutBase from '../styles/layout/base';
 
 export default function Cursos({ courses }) {
-  const [listCoursesFiltered, setListCoursesFiltered] = useState < [] > [];
-  const [typeUser, setTypeUser] = (useState < string) | (null > null);
-  const [loading, setLoading] = useState < boolean > true;
+  const [listCoursesFiltered, setListCoursesFiltered] = useState([]);
+  const [typeUser, setTypeUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const user = sessionStorage.getItem('page');

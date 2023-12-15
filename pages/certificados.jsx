@@ -9,8 +9,8 @@ import { CertButtonDownload } from '../styles/certificados';
 import LayoutBase from '../styles/layout/base';
 
 export default function Certificados() {
-  const [certs, setCerts] = (useState < []) | ([] > []);
-  const [projects, setProjects] = (useState < []) | (any > []);
+  const [certs, setCerts] = useState([]);
+  const [projects, setProjects] = useState([]);
   const [year, setYear] = useState(new Date().getFullYear());
   const [disabled, setDisabled] = useState(false);
 

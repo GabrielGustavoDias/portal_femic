@@ -12,8 +12,8 @@ import {
 import { ContainerBase, Label, NavGroup } from './styles';
 
 export default function SideBar() {
-  const [color, setColor] = useState < string > '#1FB58F';
-  const [page, setPage] = useState < string > '';
+  const [color, setColor] = useState('#1FB58F');
+  const [page, setPage] = useState('');
   const [active, setActive] = useState('');
   const [profiles, setProfiles] = useState(['']);
 

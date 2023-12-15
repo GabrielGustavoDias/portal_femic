@@ -16,8 +16,8 @@ import { useAlert } from 'react-alert';
 
 export default function Room({ room }) {
   const [loading, setLoading] = useState(false);
-  const [projects, setProjects] = useState < [] > [];
-  const [projectsList, setProjectsList] = useState < [] > [];
+  const [projects, setProjects] = useState([]);
+  const [projectsList, setProjectsList] = useState([]);
 
   const alert = useAlert();
   const router = useRouter();

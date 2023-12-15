@@ -10,8 +10,8 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 // import { IProject } from '../types/project';
 
 export default function AvaliadorHistorico() {
-  const [projects, setProjects] = useState < [] > [];
-  const [salas, setSalas] = (useState < []) | ([] > []);
+  const [projects, setProjects] = useState([]);
+  const [salas, setSalas] = useState([]);
 
   useEffect(() => {
     api

@@ -14,8 +14,8 @@ import Avaliacao from '../../components/CourseComponents/user/Avaliacao';
 
 export default function Curso() {
   const [currentModuleIndex, setCurrentModuleIndex] = useState(0);
-  const [curso, setCurso] = useState < any > {};
-  const [user, setUser] = useState < any > {};
+  const [curso, setCurso] = useState({});
+  const [user, setUser] = useState({});
   const [moduleId, setModuleId] = useState('aula inaugural');
   const [modules, setModules] = useState([]);
 

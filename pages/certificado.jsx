@@ -14,8 +14,8 @@ import {
 } from '../styles/certificados';
 
 export default function Certificado() {
-  const [project, setProject] = (useState < any) | (null > null);
-  const [user, setUser] = (useState < any) | (null > null);
+  const [project, setProject] = useState(null);
+  const [user, setUser] = useState(null);
   const [err, setErr] = useState(false);
 
   const searchCertificate = (e) => {

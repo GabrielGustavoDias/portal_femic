@@ -26,7 +26,7 @@ import { useAlert } from 'react-alert';
 export default function CursoModulo({ courseProps }) {
   const [moduleId, setModuleId] = useState('aula inaugural');
   const [visible, setVisible] = useState(false);
-  const [modules, setModules] = useState < [] > [];
+  const [modules, setModules] = useState([]);
 
   const [image, setImage] = useState('');
   const [preview, setPreview] = useState('');

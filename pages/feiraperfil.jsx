@@ -17,8 +17,8 @@ export default function PerfilFeira() {
   const [oldPass, setOldPass] = useState('');
   const [newPass, setNewPass] = useState('');
   const [verifyNewPass, setVerifyNewPass] = useState('');
-  const [preview, setPreview] = (useState < string) | (undefined > '');
-  const [image, setImage] = (useState < string) | (any > '');
+  const [preview, setPreview] = useState('');
+  const [image, setImage] = useState('');
   const [visible, setVisible] = useState(false);
 
   const alert = useAlert();

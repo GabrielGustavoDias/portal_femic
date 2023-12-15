@@ -17,7 +17,7 @@ import api from '../../config/api';
 
 const Header = ({ title }) => {
   // const menu = useContext();
-  const [userName, setUsername] = (useState < string) | (null > '');
+  const [userName, setUsername] = useState('');
   const [avatar, setAvatar] = useState('');
   const [showMenu, setShowMenu] = useState(false);
 

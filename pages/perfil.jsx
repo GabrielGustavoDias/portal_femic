@@ -26,10 +26,10 @@ export default function Perfil() {
   const [oldPass, setOldPass] = useState('');
   const [newPass, setNewPass] = useState('');
   const [verifyNewPass, setVerifyNewPass] = useState('');
-  const [image, setImage] = (useState < string) | (any > '');
+  const [image, setImage] = useState('');
   const [disabled, setDisabled] = useState(false);
   const [visible, setVisible] = useState(false);
-  const [preview, setPreview] = (useState < string) | (undefined > '');
+  const [preview, setPreview] = useState('');
 
   const alert = useAlert();
 

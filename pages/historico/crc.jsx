@@ -9,7 +9,7 @@ import { FormQuery } from '../../styles/admin/styles.module';
 
 export default function CrcHistorico() {
   const [projects, setProjects] = useState([]);
-  const [year, setYear] = (useState < number) | (string > 2022);
+  const [year, setYear] = useState(2022);
   const [state, setState] = useState('');
   const [modality, setModality] = useState('');
   const [stateAux, setStateAux] = useState('');

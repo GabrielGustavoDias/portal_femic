@@ -154,12 +154,12 @@ export const Division = styled.div`
   height: auto;
 `;
 
-interface IAside {
-  color1: string;
-  color2: string;
-}
+// interface IAside {
+//   color1: string;
+//   color2: string;
+// }
 
-export const Aside = styled.aside<IAside>`
+export const Aside = styled.aside`
   display: flex;
   flex: 1;
   background: linear-gradient(

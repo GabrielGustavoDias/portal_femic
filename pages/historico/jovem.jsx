@@ -9,7 +9,7 @@ import Link from 'next/link';
 // import { IProject } from '../../types/project';
 
 export default function HistoricoJovem() {
-  const [projects, setProjects] = (useState < any) | ([] > []);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     api

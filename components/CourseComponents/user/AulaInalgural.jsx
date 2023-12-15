@@ -11,7 +11,7 @@ import api from '../../../config/api';
 // }
 
 export default function AulaInaugural({ id, idModuleOne, setIdModule }) {
-  const [data, setData] = useState < any > {};
+  const [data, setData] = useState({});
   const [videoWatched, setVideoWatched] = useState(false);
 
   useEffect(() => {

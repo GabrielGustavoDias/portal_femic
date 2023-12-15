@@ -32,14 +32,14 @@ import CardProject from '../../../../components/CardProject';
 const PerfilParticipante = (prop) => {
   const [terms, setTerms] = useState(false);
   const [identifier, setIdentifier] = useState('');
-  const [dateNas, setDateNas] = (useState < string) | (Date > '');
+  const [dateNas, setDateNas] = useState('');
   const [name, setName] = useState('');
   const [profiles, setProfiles] = useState('');
   const [passAuth, setPassAuth] = useState('');
   const [showPas, setShowPass] = useState(false);
   const [visiblePassAuth, setVisiblePassAuth] = useState(false);
-  const [projects, setProjects] = (useState < any) | ([] > []);
-  const [projectsOri, setProjectsOri] = (useState < any) | ([] > []);
+  const [projects, setProjects] = useState([]);
+  const [projectsOri, setProjectsOri] = useState([]);
 
   const alert = useAlert();
   const router = useRouter();

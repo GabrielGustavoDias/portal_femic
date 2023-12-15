@@ -55,13 +55,13 @@ export default function Participante() {
   const [fluent, setFluent] = useState('');
   const [pass, setPass] = useState('');
   const [passConfirm, setPasConfirm] = useState('');
-  const [photo, setPhoto] = (useState < Blob) | ('' > '');
+  const [photo, setPhoto] = useState('');
   const [prof, setProf] = useState('');
   const [validateTerms, setValidateTerms] = useState(false);
 
   const [disabledCity, setDisabledCity] = useState(true);
 
-  const [cityes, setCityes] = (useState < [{ nome, id }]) | ([] > []);
+  const [cityes, setCityes] = useState([]);
   const [paises, setPaises] = useState(countryes);
 
   const router = useRouter();

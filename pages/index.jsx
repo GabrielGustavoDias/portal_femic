@@ -40,18 +40,15 @@ import landing from '../public/imagens/landing2.png';
 // }
 
 const Home = () => {
-  const [users, setUsers] =
-    useState <
-    RequestUsers >
-    {
-      count: 0,
-      limit: 0,
-      users: [{ name: '', avatar_url: '', country: '', state: '' }],
-    };
-  const [projects, setProjects] = (useState < []) | ([] > []);
+  const [users, setUsers] = useState({
+    count: 0,
+    limit: 0,
+    users: [{ name: '', avatar_url: '', country: '', state: '' }],
+  });
+  const [projects, setProjects] = useState([]);
   const [projectFilter, setProjectsFilter] = useState('Educação Infantil');
 
-  const [affiliates, setAffiliates] = (useState < []) | [];
+  const [affiliates, setAffiliates] = useState([]);
   const [indexAffiliate, setIndexAffiliate] = useState(0);
 
   const [load, setLoad] = useState(false);

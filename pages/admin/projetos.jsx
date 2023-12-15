@@ -16,8 +16,7 @@ import { ufs } from '../../config/dados';
 import { FiFilePlus } from 'react-icons/fi';
 
 export default function Participantes() {
-  const [year, setYear] =
-    (useState < string) | (number > new Date().getFullYear());
+  const [year, setYear] = useState('' | new Date().getFullYear());
   const [state, setState] = useState('');
   const [uf, setUf] = useState('');
   const [category, setCategory] = useState('');

@@ -18,7 +18,7 @@ export default function ProjetoDados() {
   const [affiliates, setAffiliates] = useState([]);
   const [categorys, setCategorys] = useState(['']);
   const [disabled, setDisabled] = useState(false);
-  const [modality, setModality] = (useState < string) | (null > '');
+  const [modality, setModality] = useState('');
   const [color, setColor] = useState('');
 
   const alert = useAlert();

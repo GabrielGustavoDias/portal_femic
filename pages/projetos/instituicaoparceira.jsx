@@ -16,8 +16,7 @@ export default function ProjetoInstituicaoParceira() {
     mode: 'onBlur',
   });
 
-  const [cityes, setCityes] =
-    (useState < [{ nome: string, id: string }]) | ([] > []);
+  const [cityes, setCityes] = useState([{ nome: '', id: '' }] | []);
   const [color, setColor] = useState('');
 
   useEffect(() => {

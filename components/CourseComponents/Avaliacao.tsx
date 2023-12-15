@@ -32,6 +32,7 @@ export default function Avaliacao({ id, data }: IProps) {
       .patch(`/course/${id}`, data)
       .then((res) => {
         alert.success('Avaliação atualizada');
+        window.location.reload();
       })
       .catch(console.warn);
   };

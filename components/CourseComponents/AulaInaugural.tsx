@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { FormCourse } from '../../styles/admin/styles.module';
 import api from '../../config/api';
 import { TextEdit } from '../InputFormater';
+import { useAlert } from 'react-alert';
 
 interface IProps {
   id: string;
@@ -12,6 +13,7 @@ interface IProps {
 
 export default function AulaInaugural({ id, data }: IProps) {
   const { register, control, handleSubmit, reset, setValue, watch } = useForm();
+  const alert = useAlert();
 
   const handleQuillChange = (field: string, value: string) => {
     setValue(field, value);
@@ -30,6 +32,8 @@ export default function AulaInaugural({ id, data }: IProps) {
       .patch(`/course/${id}`, data)
       .then((res) => {
         console.log(res.data);
+        alert.success("Aula inaugural salva com sucesso!")
+        window.location.reload();
       })
       .catch(console.warn);
   };

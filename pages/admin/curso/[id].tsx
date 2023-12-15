@@ -19,7 +19,7 @@ export default function Cursos({ course }: any) {
   };
 
   const onSubmit = (data: any) => {
-    console.log(data, 'data');
+ 
     if (course._id) {
       delete data['modulos'];
       data['type'] = 'infos';

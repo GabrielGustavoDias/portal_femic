@@ -8,7 +8,7 @@ import { TabsStyle } from '../../styles/layout/styles';
 import { FormCourse, Exercices } from '../../styles/admin/styles.module';
 import Questoes from './Questoes';
 
-import { ICourse, IModule } from '../../types/course';
+// import { ICourse, IModule } from '../../types/course';
 
 import api from '../../config/api';
 import { TextEdit } from '../InputFormater';

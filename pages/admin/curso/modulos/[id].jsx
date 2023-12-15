@@ -15,8 +15,8 @@ import {
 import { useRouter } from 'next/router';
 import api, { baseUrl } from '../../../../config/api';
 
-import { GetServerSideProps } from 'next';
-import { ICourse, IModule } from '../../../../types/course';
+// import { GetServerSideProps } from 'next';
+// import { ICourse, IModule } from '../../../../types/course';
 import { useAlert } from 'react-alert';
 
 // interface IProp {

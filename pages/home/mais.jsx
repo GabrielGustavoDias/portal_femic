@@ -9,7 +9,7 @@ import LayoutBase from '../../styles/layout/base';
 
 import Image from 'next/image';
 import ProjectsList from '../../components/ProjectsList';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 export default function Mais() {
   const [projects, setProjects] = useState([]);

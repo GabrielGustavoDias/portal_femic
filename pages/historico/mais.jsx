@@ -6,7 +6,7 @@ import { ProjectList, Project } from '../../styles/feiraperfil';
 import api, { baseUrl } from '../../config/api';
 
 import Link from 'next/link';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 export default function HistoricoMais() {
   const [projects, setProjects] = useState([]);

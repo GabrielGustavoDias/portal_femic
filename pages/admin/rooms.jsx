@@ -6,7 +6,7 @@ import { Modal, Text } from '@nextui-org/react';
 import api from '../../config/api';
 import { FormQuery, ProjectContainer } from '../../styles/admin/styles.module';
 import AdminLayout from '../../styles/layout/admin';
-import { IRooms } from '../../types/rooms';
+// import { IRooms } from '../../types/rooms';
 
 export default function Rooms() {
   const [rooms, setRooms] = useState([]);

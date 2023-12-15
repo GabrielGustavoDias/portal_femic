@@ -6,7 +6,7 @@ import api from '../../config/api';
 
 import LayoutBase from '../../styles/layout/base';
 import ProjectsList from '../../components/ProjectsList';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 export default function Jovem() {
   const [project, setProject] = useState([]);

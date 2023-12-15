@@ -5,7 +5,7 @@ import LayoutBase from '../../styles/layout/feiraBase';
 import { Project, ProjectInfo } from '../../styles/home/style.module';
 
 import api from '../../config/api';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 export default function Feira() {
   const [credentials, setCredentials] = useState(0);

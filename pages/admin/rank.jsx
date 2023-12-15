@@ -12,7 +12,7 @@ import {
 } from '../../styles/admin/styles.module';
 
 import AdminLayout from '../../styles/layout/admin';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 export default function Rank() {
   const [projects, setProjects] = useState([]);

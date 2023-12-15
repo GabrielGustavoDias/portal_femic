@@ -1,22 +1,20 @@
-import { GetServerSideProps, NextPage } from 'next';
+// import { GetServerSideProps, NextPage } from 'next';
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { useAlert } from 'react-alert';
 import { Checkbox } from '@nextui-org/react';
 
 import {
-  BaremaContainer,
   Project,
   ProjectDetails,
   ProjectInfoAdmin,
 } from '../../../styles/home/style.module';
+// BaremaContainer,
 
 import LayoutBase from '../../../styles/layout/base';
-import {
-  ListUsers,
-  Table,
-  UserCard,
-} from '../../../styles/projetos/styles.module';
+import { Table } from '../../../styles/projetos/styles.module';
+// ListUsers,
+// UserCard,
 
 import { renderAreaProject } from '../../../utils/projects';
 import api, { baseUrl } from '../../../config/api';

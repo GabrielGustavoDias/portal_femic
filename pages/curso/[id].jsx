@@ -10,7 +10,7 @@ import InfoHeader from '../../components/CourseComponents/user/InfoHeader';
 import Atividade from '../../components/CourseComponents/user/Atividade';
 import AulaInalgural from '../../components/CourseComponents/user/AulaInalgural';
 import Avaliacao from '../../components/CourseComponents/user/Avaliacao';
-import { IModule } from '../../types/course';
+// import { IModule } from '../../types/course';
 
 export default function Curso() {
   const [currentModuleIndex, setCurrentModuleIndex] = useState(0);

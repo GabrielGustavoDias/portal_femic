@@ -7,7 +7,7 @@ import LayoutBase from '../../styles/layout/base';
 import { Project, ProjectInfo } from '../../styles/home/style.module';
 import { modalityList } from '../../utils/projects';
 import { FormQuery } from '../../styles/admin/styles.module';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 export default function Crc() {
   const [color, setColor] = useState('');

@@ -10,7 +10,7 @@ import NavBar from '../../components/NavBar';
 import api, { baseUrl } from '../../config/api';
 import { ListUsers } from '../../styles/projetos/styles.module';
 import { renderAreaProject } from '../../utils/projects';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 // interface IProjetoView {
 // 	project: IProject;

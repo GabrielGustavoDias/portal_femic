@@ -1,5 +1,5 @@
 import { Loading, Modal, Text, Tooltip } from '@nextui-org/react';
-import { NextPage } from 'next';
+// import { NextPage } from 'next';
 import { FiFilePlus } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -8,7 +8,7 @@ import api, { baseUrl } from '../../config/api';
 import { ProjectInfo, Project } from '../../styles/home/style.module';
 import { useAlert } from 'react-alert';
 import TooltipLive from '../TooltipLive';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 // type IProps = {
 //   profile: String;

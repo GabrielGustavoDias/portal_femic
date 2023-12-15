@@ -1,9 +1,9 @@
 import { Tooltip } from '@nextui-org/react';
-import { NextPage } from 'next';
+// import { NextPage } from 'next';
 import { useState } from 'react';
 import { useAlert } from 'react-alert';
 import api, { baseUrl } from '../../config/api';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 // interface IProjectConfirm {
 // 	project: IProject;

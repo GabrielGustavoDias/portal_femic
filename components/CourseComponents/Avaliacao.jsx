@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useAlert } from 'react-alert';
 
 import { FormCourse } from '../../styles/admin/styles.module';
-import { IQuestion } from '../../types/course';
+// import { IQuestion } from '../../types/course';
 import api from '../../config/api';
 import { TextEdit } from '../InputFormater';
 

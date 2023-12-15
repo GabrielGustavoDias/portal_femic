@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import api from '../../config/api';
 import Link from 'next/link';
-import { ICourse } from '../../types/course';
+// import { ICourse } from '../../types/course';
 
 export default function Cursos() {
   const [cursos, setCursos] = useState();

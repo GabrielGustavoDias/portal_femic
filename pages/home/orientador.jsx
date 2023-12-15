@@ -14,7 +14,7 @@ import {
   ListProjects,
 } from '../../styles/home/style.module';
 import ProjectsList from '../../components/ProjectsList';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 export default function Orientador() {
   const [projects, setProjects] = useState([]);

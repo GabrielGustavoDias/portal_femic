@@ -1,6 +1,6 @@
 import { Checkbox, Tooltip } from '@nextui-org/react';
 import { ListUsers, Table } from '../../styles/projetos/styles.module';
-import { IEvaluation2, IEvaluation } from '../../types/project';
+// import { IEvaluation2, IEvaluation } from '../../types/project';
 
 // interface Props {
 // 	project: any;

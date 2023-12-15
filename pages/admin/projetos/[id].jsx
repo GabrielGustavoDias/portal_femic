@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from 'next';
+// import { GetServerSideProps, NextPage } from 'next';
 import Image from 'next/image';
 import { useEffect, useState, Key } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
@@ -12,10 +12,10 @@ import CardPeople from '../../../components/CardPeople';
 import Etica from '../../../components/Etica';
 import ProjectConfirmacao from '../../../components/ProjectConfirmacao';
 
-import { IUser } from '../../../types/user';
-import { IEvaluation, IEvaluation2 } from '../../../types/project';
+// import { IUser } from '../../../types/user';
+// import { IEvaluation, IEvaluation2 } from '../../../types/project';
 
-import { convertSexToString, renderModality } from '../../../utils/user';
+import { convertSexToString } from '../../../utils/user';
 import {
   renderModalityInstituition,
   renderAreaProject,
@@ -135,43 +135,37 @@ const columns2 = [
 
 const ProjetoAdminView = (prop) => {
   const [team, setTeam] = useState({ team: [], advisors: [] });
-  const [avaliadores, setAvaliadores] = useState < [] > [];
-  const [commissionPre, setCommissionPre] = useState < []([]);
-  const [preAval, setPreAval] =
-    useState <
-    [] >
-    [
-      {
-        avaliador: '123',
-        avaliador_nome: 'Sem avaliação',
-        nota1: 0,
-        nota2: 0,
-        nota3: 0,
-        nota4: 0,
-        nota5: 0,
-        nota6: true,
-        somatorio: 0,
-      },
-    ];
-  const [commissionFinal, setCommissionFinal] = useState < [] > [];
-  const [finalAval, setFinalAval] =
-    useState <
-    [] >
-    [
-      {
-        avaliador: '123',
-        avaliador_nome: 'Sem avaliação',
-        nota1: 0,
-        nota2: 0,
-        nota3: 0,
-        nota4: 0,
-        nota5: 0,
-        nota6: 0,
-        nota7: 0,
-        nota8: 0,
-        somatorio: 0,
-      },
-    ];
+  const [avaliadores, setAvaliadores] = useState([]);
+  const [commissionPre, setCommissionPre] = useState([]);
+  const [preAval, setPreAval] = useState([
+    {
+      avaliador: '123',
+      avaliador_nome: 'Sem avaliação',
+      nota1: 0,
+      nota2: 0,
+      nota3: 0,
+      nota4: 0,
+      nota5: 0,
+      nota6: true,
+      somatorio: 0,
+    },
+  ]);
+  const [commissionFinal, setCommissionFinal] = useState([]);
+  const [finalAval, setFinalAval] = useState([
+    {
+      avaliador: '123',
+      avaliador_nome: 'Sem avaliação',
+      nota1: 0,
+      nota2: 0,
+      nota3: 0,
+      nota4: 0,
+      nota5: 0,
+      nota6: 0,
+      nota7: 0,
+      nota8: 0,
+      somatorio: 0,
+    },
+  ]);
   const { project, commission } = prop;
 
   const [showInst, setShowInst] = useState(false);

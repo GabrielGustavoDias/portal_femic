@@ -6,10 +6,10 @@ import { ProjectList, Project } from '../../styles/feiraperfil';
 import api, { baseUrl } from '../../config/api';
 
 import Link from 'next/link';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 export default function HistoricoJovem() {
-  const [projects, setProjects] = useState<any | []>([]);
+  const [projects, setProjects] = (useState < any) | ([] > []);
 
   useEffect(() => {
     api
@@ -25,20 +25,18 @@ export default function HistoricoJovem() {
       });
   }, []);
 
-  const renderHistoric = (year: string) => {
+  const renderHistoric = (year) => {
     if (!projects) {
       return 'sem histórico para mostrar';
     }
 
-    const projetos_ano = projects.filter(
-      (hists: any) => String(hists.year) == year
-    );
+    const projetos_ano = projects.filter((hists) => String(hists.year) == year);
 
     if (!projetos_ano) {
       return 'sem projetos no histórico';
     }
 
-    const renderHistName = (text: string) => {
+    const renderHistName = (text) => {
       if (text == 'mais') {
         return 'FEMIC Mais';
       } else if (text == 'orientador') {
@@ -52,26 +50,26 @@ export default function HistoricoJovem() {
       } else if (text == 'avaliador') {
         return 'Avaliador';
       }
-    }
+    };
     return (
       <div className="flex flex-col gap-3">
         {projetos_ano
-          .map((hist: any) => hist.projects)[0]
-          .map((hist_name: any) => (
+          .map((hist) => hist.projects)[0]
+          .map((hist_name) => (
             <div key={hist_name._id} className="flex flex-col gap-3">
               <span className="bg-slate-500 text-white px-3 py-2 rounded w-fit">
-              {renderHistName(hist_name.value)}
+                {renderHistName(hist_name.value)}
               </span>
               {hist_name.projetos.length <= 0 && (
                 <span>Sem projetos no ano de {year}</span>
               )}
-              {hist_name.projetos.map((project: IProject) => {
+              {hist_name.projetos.map((project) => {
                 return (
                   !'rascunho,desistente'.includes(project.status) && (
                     <Project key={project._id}>
                       <img src={`${baseUrl}/project/logo/${project._id}`} />
                       <div className="flex flex-col">
-                        <label>{project.title+ project.status}</label>
+                        <label>{project.title + project.status}</label>
                         <span className="sub-label">{project.id_femic}</span>
                       </div>
                       <div className="flex flex-col">
@@ -98,7 +96,7 @@ export default function HistoricoJovem() {
     <LayoutBase title="Histórico">
       <ProjectList>
         {projects &&
-          projects?.map((hist: any) => (
+          projects?.map((hist) => (
             <div className="flex gap-2 flex-col" key={hist._id}>
               <span className="text-xl text-slate-700 text-center">
                 {hist.year}

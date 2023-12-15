@@ -7,7 +7,7 @@ import LayoutBase from '../../styles/layout/base';
 import { Project, ProjectInfo } from '../../styles/home/style.module';
 import { Loading } from '@nextui-org/react';
 import { useAlert } from 'react-alert';
-import { IProject } from '../../types/project';
+// import { IProject } from '../../types/project';
 
 export default function Crc() {
   const [color, setColor] = useState('');

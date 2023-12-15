@@ -6,9 +6,9 @@ import api, { baseUrl } from '../../../config/api';
 
 import AdminLayout from '../../../styles/layout/admin';
 import { ProjectContainer } from '../../../styles/admin/styles.module';
-import { IRooms } from '../../../types/rooms';
+// import { IRooms } from '../../../types/rooms';
 import { useAlert } from 'react-alert';
-import { IProject } from '../../../types/project';
+// import { IProject } from '../../../types/project';
 
 // interface IRoomProps {
 // 	room: IRooms;

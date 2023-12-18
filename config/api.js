@@ -5,6 +5,7 @@ import axios from 'axios';
 // https://3333-ryannnkl-portalfemic-8tern59u3kd.ws-us98.gitpod.io
 
 export const baseUrl = 'https://apiportal.femic.com.br';
+//export const baseUrl = 'http://localhost:27017';
 
 const api = axios.create({
   baseURL: baseUrl,

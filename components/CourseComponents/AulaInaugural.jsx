@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { Loading } from '@nextui-org/react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { FormCourse } from '../../styles/admin/styles.module';
 import api from '../../config/api';
 import { TextEdit } from '../InputFormater';
@@ -14,17 +14,18 @@ import { useAlert } from 'react-alert';
 export default function AulaInaugural({ id, data }) {
   const { register, control, handleSubmit, reset, setValue, watch } = useForm();
   const alert = useAlert();
-
   const handleQuillChange = (field, value) => {
     setValue(field, value);
   };
 
   useEffect(() => {
-    reset({
-      description: data,
-      first_class: String(sessionStorage.getItem('aux_first_class') || ''),
-    });
-  }, []);
+    if (data) {
+      reset({
+        description: data,
+        first_class: String(sessionStorage.getItem('aux_first_class') || ''),
+      });
+    }
+  }, [data]);
 
   const submit = (data) => {
     sessionStorage.setItem('aux_first_class', data['first_class']);
@@ -52,6 +53,7 @@ export default function AulaInaugural({ id, data }) {
             'Digite o texto que irá aparecer na tela de apresentação do curso.'
           }
           onQuillChange={(value) => handleQuillChange('description', value)}
+          defaultValue={data}
         />
       </div>
       <input type="text" {...register('type')} hidden value="aula_inaugural" />

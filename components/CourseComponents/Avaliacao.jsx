@@ -22,10 +22,10 @@ export default function Avaliacao({ id, data }) {
   };
 
   useEffect(() => {
-    if (data?.length >= 1) {
+    if (data && data.length >= 1) {
       reset({ avaliacao: data });
     }
-  }, []);
+  }, [data]);
 
   const submit = (data) => {
     api
@@ -38,7 +38,9 @@ export default function Avaliacao({ id, data }) {
   };
 
   const renderQuestions = (index) => {
+    const questao = data && data[index]; 
     const questaoPrefix = `avaliacao[${index}]`;
+
     return (
       <div key={index}>
         <div className="flex flex-col mb-2 ml-1">
@@ -52,6 +54,7 @@ export default function Avaliacao({ id, data }) {
             onQuillChange={(value) =>
               handleQuillChange(`${questaoPrefix}.enunciado`, value)
             }
+            defaultValue={questao ? questao.enunciado : ''}
           />
           {/* <textarea
             rows={4}

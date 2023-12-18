@@ -159,8 +159,8 @@ const Aula = ({ id, exerciceId, index, data }) => {
   const [change, setChange] = useState(false);
 
   useEffect(() => {
-    reset(data);
-  }, []);
+    reset({aula_url: data.aula_url, descricao: data.descricao});
+  }, [data]);
 
   const handleQuillChange = (field, value) => {
     setValue(field, value);
@@ -189,7 +189,6 @@ const Aula = ({ id, exerciceId, index, data }) => {
       .then((res) => {
         //window.location.reload();
         setChange(!change);
-        console.log(res.data);
       })
       .catch(console.warn);
   };
@@ -224,6 +223,7 @@ const Aula = ({ id, exerciceId, index, data }) => {
         <TextEdit
           placeholder={'Digite a descrição da sua aula'}
           onQuillChange={(value) => handleQuillChange('descricao', value)}
+          defaultValue={data.descricao}
         />
         {/* <textarea rows={10} {...register('descricao')} /> */}
       </div>

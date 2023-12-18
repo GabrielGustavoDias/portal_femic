@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 
-export const TextEdit = ({ placeholder, onQuillChange }) => {
-  const [content, setContent] = useState('');
+export const TextEdit = ({ placeholder, onQuillChange, defaultValue }) => {
+  const [content, setContent] = useState(defaultValue || '');
+
+  useEffect(() => {
+    setContent(defaultValue || '');
+  }, [defaultValue]);
+
   let toolbarOptions = [
     ['bold', 'italic', 'underline'],
     ['link', 'image'],
